@@ -7,7 +7,7 @@ jobs:
     - name: my-step
       run: echo "Hello World!" 
     - name: Build
-      uses: jurajvarga/jtest-docz2@v1
+      uses: jurajvarga/jtest-docz2@master
       with: 
         source_dir: ./src
         recurse: true
