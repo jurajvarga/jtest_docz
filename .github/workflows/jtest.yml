@@ -14,19 +14,22 @@ jobs:
       
     - name: Ls
       run: ls -la
+
+    - name: NpmInstall
+      run: npm install -g jsdoc
       
-    - name: Build
-      uses: jurajvarga/jtest-docz2@master
-      with: 
-        source_dir: /
-        output_dir: /
-        config_file: jsdoc.json
-        recurse: true
-        template: minami
-        front_page: README.md
+#    - name: Build
+#      uses: jurajvarga/jtest-docz2@master
+#      with: 
+#        source_dir: /
+#        output_dir: /
+#        config_file: jsdoc.json
+#        recurse: true
+#        template: minami
+#        front_page: README.md
         
-    - name: Deploy
-      uses: jurajvarga/jtest-docz2@master
-      with:
-        deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-        publish_dir: ./out
+#    - name: Deploy
+#      uses: jurajvarga/jtest-docz2@master
+#      with:
+#        deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+#        publish_dir: ./out
