@@ -4,7 +4,7 @@
   "description": "",
   "main": "BusinessRule_BL_Approve.js",
   "scripts": {
-    "doc": "jsdoc -c jsdoc.json"
+    "doc": "jsdoc -d docs-output/ -u documentation/ source/"
   },
   "keywords": [],
   "author": "",
