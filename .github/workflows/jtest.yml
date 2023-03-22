@@ -9,6 +9,12 @@ jobs:
     - name: HelloWorld
       run: echo "Hello World!" 
       
+    - name: Pwd
+      run: pwd
+      
+    - name: Ls
+      run: ls
+      
     - name: Build
       uses: jurajvarga/jtest-docz2@master
       with: 
