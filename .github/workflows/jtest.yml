@@ -5,4 +5,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: my-step
-      run: echo "Hello World!"
+      run: echo "Hello World!" 
+    - name: Build
+      uses: andstor/jsdoc-action@v1
+      with: 
+        source_dir: ./src
+        recurse: true
+        output_dir: ./out
