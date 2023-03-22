@@ -14,12 +14,9 @@ jobs:
       
     - name: Ls
       run: ls -la
-    
-    - name: ChangeDirectory
-      run: cd ..
 
-    - name: Pwd
-      run: pwd
+    - name: Mkdir
+      run: mkdir documentation
       
     - name: NpmInstall
       run: npm install -g jsdoc
