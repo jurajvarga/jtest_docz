@@ -18,8 +18,8 @@ jobs:
     - name: Build
       uses: jurajvarga/jtest-docz2@master
       with: 
-        source_dir: /src
-        output_dir: /out
+        source_dir: /
+        output_dir: /
         config_file: jsdoc.json
         recurse: true
         template: minami
