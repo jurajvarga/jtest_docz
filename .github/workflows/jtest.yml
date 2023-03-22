@@ -1,14 +1,25 @@
 name: jtest-jsdoc
+
 on: workflow_dispatch
+
 jobs:
-  my-job:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: my-step
+    - name: HelloWorld
       run: echo "Hello World!" 
+      
     - name: Build
       uses: jurajvarga/jtest-docz2@master
       with: 
         source_dir: ./src
-        recurse: true
         output_dir: ./out
+        recurse: true
+        template: minami
+        front_page: README.md
+        
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+        publish_dir: ./out
