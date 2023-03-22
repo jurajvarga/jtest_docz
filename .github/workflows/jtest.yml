@@ -18,6 +18,9 @@ jobs:
     - name: NpmInstall
       run: npm install -g jsdoc
       
+    - name: GenerateJsDoc
+      run: npm run doc
+      
 #    - name: Build
 #      uses: jurajvarga/jtest-docz2@master
 #      with: 
