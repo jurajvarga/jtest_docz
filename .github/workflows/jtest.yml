@@ -9,11 +9,17 @@ jobs:
     - name: HelloWorld
       run: echo "Hello World!" 
       
-    - name: Pwd
-      run: pwd
+    - name: UpdateNpmToTheLatestVersion
+      run: npm install -g npm@latest
       
-    - name: Ls
-      run: ls -la
+    - name: CleanNpmCache
+      run: npm cache clean --force
+      
+    - name: DeleteNodeModulesAndPackage-Lock.json
+      run: npm rm -rf node_modules && rm package-lock.json
+      
+    - name: NpmInstall
+      run: npm install
 
     - name: Mkdir
       run: mkdir documentation
