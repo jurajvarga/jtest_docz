@@ -9,30 +9,13 @@ jobs:
       contents: write
       
     steps:
-    - name: checkout repo
+    - name: Checkout Repository jtest_docz
       uses: actions/checkout@v2.3.4
 
-    - name: Ls
-      run: |
-        cd ..
-        pwd
-        ls -la
-      
-    - name: Mkdir
-      run: mkdir documentation
-
-    - name: Ls
-      run: |
-        pwd
-        ls -la
-        
-    - name: NpmInstall
+    - name: NpmInstall jsdoc
       run: npm install -g jsdoc
       
-    - name: Cat
-      run: cat package.json
-      
-    - name: GenerateJsDoc
+    - name: Generate jsdoc
       run: npm run doc
       
 #-----------------------      
@@ -40,6 +23,7 @@ jobs:
       uses: stefanzweifel/git-auto-commit-action@v4
       with:
          commit_message: Automated Change
+         push_options: '--force'
          branch: gh-pages
          create_branch: true
          file_pattern: 'docs-output/**'
@@ -49,4 +33,4 @@ jobs:
       uses: peaceiris/actions-gh-pages@v3
       with:
         deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-        publish_dir: ./out
+        publish_dir: ./docs-output
