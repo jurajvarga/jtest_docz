@@ -42,7 +42,7 @@ jobs:
          commit_message: Automated Change
          branch: gh-pages
          create_branch: true
-         file_pattern: 'src/**'
+         file_pattern: 'docs-output/**'
 #------------------------
 
     - name: Deploy
