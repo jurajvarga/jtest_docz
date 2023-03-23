@@ -13,7 +13,7 @@ jobs:
         ls -la
       
     - name: Checkout
-      uses: actions/checkout@v1
+      uses: jurajvarga/jtest-docz@master
       
     - name: LsAfterCheckout
       run: |
