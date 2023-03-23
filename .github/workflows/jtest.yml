@@ -3,10 +3,23 @@ name: jtest-jsdoc
 on: workflow_dispatch
 
 jobs:
-  build:
+  run-github-actions:
     runs-on: ubuntu-latest
     steps:
 
+    - name: LsBeforeCheckout
+      run: |
+        pwd
+        ls -la
+      
+    - name: Checkout
+      uses: actions/checkout@v1
+      
+    - name: LsAfterCheckout
+      run: |
+        pwd
+        ls -la
+      
     - name: Mkdir
       run: mkdir documentation
       
