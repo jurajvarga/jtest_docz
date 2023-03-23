@@ -1,25 +1,29 @@
-name: pim-jsdoc
+name: GitHub pages
 
-on: workflow_dispatch
+on: 
+  workflow_dispatch
 
 jobs:
-  run-github-actions:
+  deploy:
     runs-on: ubuntu-latest
-    
+    permissions:
+      contents: write
+      
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v2.3.4
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Generate Java Script Documentation
-      uses: andstor/jsdoc-action@v1
-      with:
-        source_dir: ./source
-        recurse: true
-        output_dir: ./out
-        template: minami
+      - name: Build
+        uses: andstor/jsdoc-action@v1
+        with:
+          source_dir: ./src
+          output_dir: ./out
+          #config_file: conf.json
+          template: minami
+          #front_page: README.md
 
-    - name: Deploy
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-        publish_dir: ./out
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          publish_dir: ./out
