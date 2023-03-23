@@ -9,6 +9,7 @@ jobs:
 
     - name: Ls
       run: |
+        cd ..
         pwd
         ls -la
       
