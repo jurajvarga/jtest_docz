@@ -171,7 +171,7 @@ function createRevisionReferences(step, pRevision, pTechTransfer) {
 }
 
 
-function createRevisionReferences(step, pRevision, pTechTransfer, isLot) {
+function createRevisionReferencess(step, pRevision, pTechTransfer, isLot) {
     var children = pTechTransfer.getChildren();
     var tmApplications = new java.util.TreeMap();
     for (var i = 0; i < children.size(); i++) {
