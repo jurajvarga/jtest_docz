@@ -4,6 +4,8 @@ jobs:
   build:
     name: Sphinx Pages Test
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: seanzhengw/sphinx-pages@master
         id: sphinx-pages
