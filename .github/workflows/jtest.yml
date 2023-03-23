@@ -35,13 +35,16 @@ jobs:
     - name: GenerateJsDoc
       run: npm run doc
       
-    - name: Push Documentation into branch xyz
+#-----------------------      
+    - name: Push Documentation into the gh-pages branch
       uses: stefanzweifel/git-auto-commit-action@v4
       with:
          commit_message: Automated Change
          branch: gh-pages
          create_branch: true
-      
+         file_pattern: 'src/**'
+#------------------------
+
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
