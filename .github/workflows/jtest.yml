@@ -13,6 +13,9 @@ jobs:
     - name: NpmInstall
       run: npm install -g jsdoc
       
+    - name: Cat
+      run: cat package.json
+      
     - name: GenerateJsDoc
       run: npm run doc
       
