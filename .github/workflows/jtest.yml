@@ -7,22 +7,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-    - name: LsBeforeCheckout
-      run: |
-        pwd
-        ls -la
-      
-    - name: Checkout
-      uses: jurajvarga/jtest-docz@master
-      
-    - name: LsAfterCheckout
+    - name: Ls
       run: |
         pwd
         ls -la
       
     - name: Mkdir
       run: mkdir documentation
-      
+
+    - name: Ls
+      run: |
+        pwd
+        ls -la
+        
     - name: NpmInstall
       run: npm install -g jsdoc
       
