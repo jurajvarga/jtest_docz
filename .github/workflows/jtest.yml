@@ -6,45 +6,47 @@ jobs:
   run-github-actions:
     runs-on: ubuntu-latest
     
+ #   steps:
+ #   - name: checkout repo
+ #     uses: actions/checkout@v2.3.4
+
+#    - name: Ls
+#      run: |
+#        cd ..
+#        pwd
+#        ls -la
+      
+#    - name: Mkdir
+#      run: mkdir documentation
+
+ #   - name: Ls
+ #     run: |
+        pwd
+        ls -la
+        
+#    - name: NpmInstall
+#      run: npm install -g jsdoc
+      
+#    - name: Cat
+#      run: cat package.json
+      
+#    - name: GenerateJsDoc
+#      run: npm run doc
+      
     steps:
-    - name: checkout repo
+    - name: Checkout Repository
       uses: actions/checkout@v2.3.4
 
-    - name: Ls
-      run: |
-        cd ..
-        pwd
-        ls -la
-      
-    - name: Mkdir
-      run: mkdir documentation
+    - name: Generate Java Script Documentation
+      uses: andstor/jsdoc-action@v1
+      with:
+        source_dir: ./source
+        recurse: true
+        output_dir: ./out
+        template: minami
 
-    - name: Ls
-      run: |
-        pwd
-        ls -la
-        
-    - name: NpmInstall
-      run: npm install -g jsdoc
-      
-    - name: Cat
-      run: cat package.json
-      
-    - name: GenerateJsDoc
-      run: npm run doc
-      
-#    - name: Build
-#      uses: jurajvarga/jtest-docz2@master
-#      with: 
-#        source_dir: /
-#        output_dir: /
-#        config_file: jsdoc.json
-#        recurse: true
-#        template: minami
-#        front_page: README.md
-        
-#    - name: Deploy
-#      uses: jurajvarga/jtest-docz2@master
-#      with:
-#        deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-#        publish_dir: ./out
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+        publish_dir: ./out
