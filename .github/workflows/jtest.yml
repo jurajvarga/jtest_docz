@@ -6,45 +6,34 @@ jobs:
   run-github-actions:
     runs-on: ubuntu-latest
     
- #   steps:
- #   - name: checkout repo
- #     uses: actions/checkout@v2.3.4
+    steps:
+    - name: checkout repo
+      uses: actions/checkout@v2.3.4
 
-#    - name: Ls
-#      run: |
-#        cd ..
-#        pwd
-#        ls -la
+    - name: Ls
+      run: |
+        cd ..
+        pwd
+        ls -la
       
-#    - name: Mkdir
-#      run: mkdir documentation
+    - name: Mkdir
+      run: mkdir documentation
 
- #   - name: Ls
- #     run: |
+    - name: Ls
+      run: |
         pwd
         ls -la
         
-#    - name: NpmInstall
-#      run: npm install -g jsdoc
+    - name: NpmInstall
+      run: npm install -g jsdoc
       
-#    - name: Cat
-#      run: cat package.json
+    - name: Cat
+      run: cat package.json
       
-#    - name: GenerateJsDoc
-#      run: npm run doc
+    - name: GenerateJsDoc
+      run: npm run doc
       
-    steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v2.3.4
-
-    - name: Generate Java Script Documentation
-      uses: andstor/jsdoc-action@v1
-      with:
-        source_dir: ./source
-        recurse: true
-        output_dir: ./out
-        template: minami
-
+      
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
